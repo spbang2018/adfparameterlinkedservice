@@ -1,0 +1,22 @@
+{
+	"name": "Az_analyticsblobstoarge_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_destination_blobstoarge",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "@{item().Table_Name}",
+				"container": "iotstreamanalytics"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

@@ -80,16 +80,20 @@
 		],
 		"parameters": {
 			"Inputfile": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Sales.csv"
 			},
 			"containername": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "salesdata"
 			},
 			"TABLE_SCHEMA": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "dbo"
 			},
 			"TABLE_NAME": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "SalesProduct"
 			}
 		},
 		"folder": {

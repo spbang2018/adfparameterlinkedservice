@@ -4,7 +4,7 @@
 		"description": "Dynamic_Parameterize",
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copyfiles",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -29,7 +29,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": {
-							"value": "@{truncate table pipeline().parameters.dbtable}",
+							"value": "TRUNCATE TABLE [@{pipeline().parameters.dbtable}]",
 							"type": "Expression"
 						},
 						"disableMetricsCollection": false

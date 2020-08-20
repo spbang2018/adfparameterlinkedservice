@@ -1,20 +1,9 @@
 {
-	"name": "az_destination_blob_dataset_copy2_parameters",
+	"name": "az_destination_blob_dataset_copy1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "az_destination_blobstoarge",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"filename": {
-				"type": "string"
-			},
-			"containerName": {
-				"type": "string"
-			}
-		},
-		"folder": {
-			"name": "Parametrize"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
@@ -22,13 +11,10 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().filename",
+					"value": "@{item().Table_Name}",
 					"type": "Expression"
 				},
-				"container": {
-					"value": "@dataset().containerName",
-					"type": "Expression"
-				}
+				"container": "archivecontainer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

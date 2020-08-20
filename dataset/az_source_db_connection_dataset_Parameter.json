@@ -1,0 +1,20 @@
+{
+	"name": "az_source_db_connection_dataset_Parameter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_source_parameterize_linkedservice_dbconnection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Parametrize"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}

@@ -14,7 +14,7 @@
 					},
 					"waitOnCompletion": false,
 					"parameters": {
-						"Inputfile": "SalesCategory.csv",
+						"Inputfile": "",
 						"TABLE_NAME": "SalesCategory"
 					}
 				}

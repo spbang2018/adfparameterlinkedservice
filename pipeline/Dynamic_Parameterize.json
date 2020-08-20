@@ -29,7 +29,7 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"preCopyScript": {
-							"value": "TRUNCATE TABLE [@{pipeline().parameters.dbtable}]",
+							"value": "TRUNCATE TABLE [@{pipeline().parameters.TABLE_SCHEMA}].[@{pipeline().parameters.TABLE_NAME}]",
 							"type": "Expression"
 						},
 						"disableMetricsCollection": false
@@ -65,8 +65,12 @@
 						"referenceName": "az_source_db_connection_dataset_Parameter",
 						"type": "DatasetReference",
 						"parameters": {
-							"tablename": {
-								"value": "@pipeline().parameters.dbtable",
+							"TABLE_NAME": {
+								"value": "@pipeline().parameters.TABLE_NAME",
+								"type": "Expression"
+							},
+							"TABLE_SCHEMA": {
+								"value": "@pipeline().parameters.TABLE_SCHEMA",
 								"type": "Expression"
 							}
 						}
@@ -78,10 +82,13 @@
 			"Inputfile": {
 				"type": "string"
 			},
-			"dbtable": {
+			"containername": {
 				"type": "string"
 			},
-			"containername": {
+			"TABLE_SCHEMA": {
+				"type": "string"
+			},
+			"TABLE_NAME": {
 				"type": "string"
 			}
 		},

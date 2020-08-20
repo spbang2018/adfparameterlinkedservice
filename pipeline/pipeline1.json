@@ -12,7 +12,11 @@
 						"referenceName": "Dynamic_Parameterize",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": false,
+					"parameters": {
+						"Inputfile": "SalesCategory.csv",
+						"TABLE_NAME": "SalesCategory"
+					}
 				}
 			}
 		],

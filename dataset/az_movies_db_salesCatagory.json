@@ -1,5 +1,5 @@
 {
-	"name": "az_movies_db",
+	"name": "az_movies_db_salesCatagory",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "az_source_dataflow_Connection",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Sales.csv",
+				"fileName": "SalesCategory.csv",
 				"container": "salesdata"
 			},
 			"columnDelimiter": ",",

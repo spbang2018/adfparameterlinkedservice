@@ -1,0 +1,13 @@
+{
+	"name": "az_destination_Blob_Storage_dataflow",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "az_destination_Blob_Storage",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=processsalesdatasa;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlYyREVNT1RFU1RfYjQzYzlhNTctMGM4OS00MGQ5LTk2MmEtNzU3NzRmZDQwODYwIg0KfQ=="
+		}
+	}
+}

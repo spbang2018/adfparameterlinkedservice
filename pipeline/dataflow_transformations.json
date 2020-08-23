@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "dataflow1",
+				"name": "CalculateAverageMovies_Ratings",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {

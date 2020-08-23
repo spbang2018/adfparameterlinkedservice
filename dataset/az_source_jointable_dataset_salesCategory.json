@@ -1,0 +1,36 @@
+{
+	"name": "az_source_jointable_dataset_salesCategory",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_source_dataflow_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "joinblobtables"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SalesCategory.csv",
+				"container": "salesdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}

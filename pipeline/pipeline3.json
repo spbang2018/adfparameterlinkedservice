@@ -32,8 +32,8 @@
 				}
 			},
 			{
-				"name": "Copy data1",
-				"type": "Copy",
+				"name": "If Condition1",
+				"type": "IfCondition",
 				"dependsOn": [
 					{
 						"activity": "join_dataflow",
@@ -42,33 +42,24 @@
 						]
 					}
 				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+					"expression": {
+						"value": "@contains(activity('join_dataflow').output.runStatus.metrics, 'sink1')",
+						"type": "Expression"
 					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "Az_analyticsblobstoarge_dataset",
-						"type": "DatasetReference"
-					}
-				]
+					"ifTrueActivities": [
+						{
+							"name": "Wait_numberofrowswritten",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
 			}
 		],
 		"folder": {

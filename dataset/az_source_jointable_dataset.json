@@ -1,0 +1,79 @@
+{
+	"name": "az_source_jointable_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_source_dataflow_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "joinblobtables"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales.csv",
+				"container": "salesdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "ProductNumber",
+				"type": "String"
+			},
+			{
+				"name": "Color",
+				"type": "String"
+			},
+			{
+				"name": "StandardCost",
+				"type": "String"
+			},
+			{
+				"name": "ListPrice",
+				"type": "String"
+			},
+			{
+				"name": "Size",
+				"type": "String"
+			},
+			{
+				"name": "Weight",
+				"type": "String"
+			},
+			{
+				"name": "ProductCategoryID",
+				"type": "String"
+			},
+			{
+				"name": "ProductModelID",
+				"type": "String"
+			},
+			{
+				"name": "SellStartDate",
+				"type": "String"
+			},
+			{
+				"name": "SellEndDate",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	}
+}

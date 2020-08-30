@@ -33,7 +33,7 @@
 				}
 			},
 			{
-				"name": "Filter1",
+				"name": "Filterinputfiles",
 				"type": "Filter",
 				"dependsOn": [
 					{
@@ -51,6 +51,25 @@
 					},
 					"condition": {
 						"value": "@endswith( item().name,'.txt')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Filterinputfiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Filterinputfiles').output.Value",
 						"type": "Expression"
 					}
 				}

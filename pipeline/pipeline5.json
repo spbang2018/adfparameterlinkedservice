@@ -5,14 +5,31 @@
 			{
 				"name": "Execute Pipeline1",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "getinputfiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "pipeline4",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": false,
+					"parameters": {
+						"containername": {
+							"value": "@activity('getinputfiles').output.Value",
+							"type": "Expression"
+						},
+						"filrname": {
+							"value": "@activity('getinputfiles').output.value",
+							"type": "Expression"
+						}
+					}
 				}
 			},
 			{
@@ -33,7 +50,7 @@
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"itemName",
+						"childItems",
 						"itemName",
 						"itemType"
 					],

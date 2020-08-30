@@ -17,7 +17,17 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "az_destination_blob_dataset",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"containername": {
+								"value": "@pipeline().parameters.containername",
+								"type": "Expression"
+							},
+							"filepath": {
+								"value": "@pipeline().parameters.filrname",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems",

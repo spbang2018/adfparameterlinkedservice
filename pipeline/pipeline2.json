@@ -17,7 +17,13 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "join_dataflow",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"parameters": {
+							"outputfilename": {
+								"value": "'@{concat('siva')}'",
+								"type": "Expression"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,

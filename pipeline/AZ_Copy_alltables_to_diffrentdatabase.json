@@ -121,7 +121,17 @@
 							"outputs": [
 								{
 									"referenceName": "az_destination_blob_dataset",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"containername": {
+											"value": "@concat('siva')",
+											"type": "Expression"
+										},
+										"filepath": {
+											"value": "@concat('prasad')",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						},
@@ -192,7 +202,17 @@
 										"inputs": [
 											{
 												"referenceName": "az_destination_blob_dataset",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"containername": {
+														"value": "@concat('siva')",
+														"type": "Expression"
+													},
+													"filepath": {
+														"value": "@concat('prasad')",
+														"type": "Expression"
+													}
+												}
 											}
 										],
 										"outputs": [

@@ -225,14 +225,8 @@
 						"referenceName": "az_destination_blob_dataset",
 						"type": "DatasetReference",
 						"parameters": {
-							"containername": {
-								"value": "@pipeline().parameters.containername",
-								"type": "Expression"
-							},
-							"filepath": {
-								"value": "@pipeline().parameters.storageaccountname",
-								"type": "Expression"
-							}
+							"containername": "asassas",
+							"filepath": "ssasass"
 						}
 					},
 					"fieldList": [],

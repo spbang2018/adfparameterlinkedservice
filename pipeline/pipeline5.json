@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "az_hdinsight_blob_dataset_dataset",
+						"referenceName": "az_hdinsight_blob_dataset_dataset_inputfiles",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -96,7 +96,12 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"columnCount",
+									"itemName",
+									"itemType",
+									"structure"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings"
 								},

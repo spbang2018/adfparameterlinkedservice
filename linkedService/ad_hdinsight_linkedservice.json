@@ -2,7 +2,7 @@
 	"name": "ad_hdinsight_linkedservice",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"description": "ad_hdinsight_linkedservice",
+		"description": "ad_hdinsight_linkedservice_test",
 		"annotations": [],
 		"type": "HDInsightOnDemand",
 		"typeProperties": {

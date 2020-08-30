@@ -1,0 +1,9 @@
+{
+	"name": "executepipeline",
+	"properties": {
+		"folder": {
+			"name": "adf_hdinsight_hive_pipeline"
+		},
+		"annotations": []
+	}
+}

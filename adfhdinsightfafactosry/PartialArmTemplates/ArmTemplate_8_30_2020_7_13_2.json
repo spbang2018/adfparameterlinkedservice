@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfhdinsightfafactosry"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ad_hdinsight_linkedservice')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "ad_hdinsight_linkedservice",
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "hadoop",
+					"clusterSize": 2,
+					"timeToLive": "00:15:00",
+					"version": "3.6",
+					"hostSubscriptionId": "d0956f8c-fa6b-46dc-82d1-85423f78484b",
+					"clusterResourceGroup": "adfhdinsight",
+					"servicePrincipalId": "4cc662b1-9fc9-4e0a-be46-8bdb16c94490",
+					"osType": "Linux",
+					"tenant": "2eb8bb1d-7e5c-4341-ac3b-59e3035f122e",
+					"clusterNamePrefix": "",
+					"clusterUserName": "spbang2018",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"clusterSshUserName": "spbang2018",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"additionalLinkedServiceNames": [],
+					"linkedServiceName": {
+						"referenceName": "az_destination_blobstoarge",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

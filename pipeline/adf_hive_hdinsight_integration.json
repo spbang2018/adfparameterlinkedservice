@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"name": "Filterinputfiles",
+				"name": "filterinputfiles",
 				"type": "Filter",
 				"dependsOn": [
 					{
@@ -61,7 +61,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Filterinputfiles",
+						"activity": "filterinputfiles",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -199,22 +199,6 @@
 							}
 						}
 					]
-				}
-			},
-			{
-				"name": "Filterinputfiles_copy1",
-				"type": "Filter",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('getinputfiles').output.childItems",
-						"type": "Expression"
-					},
-					"condition": {
-						"value": "@endswith( item().name,'.txt')",
-						"type": "Expression"
-					}
 				}
 			}
 		],

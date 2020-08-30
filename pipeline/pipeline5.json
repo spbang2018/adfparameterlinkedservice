@@ -3,36 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Execute Pipeline1",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "getinputfiles",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "pipeline4",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": false,
-					"parameters": {
-						"containername": {
-							"value": "@activity('getinputfiles').output.Value",
-							"type": "Expression"
-						},
-						"filrname": {
-							"value": "@activity('getinputfiles').output.value",
-							"type": "Expression"
-						}
-					}
-				}
-			},
-			{
 				"name": "getinputfiles",
 				"type": "GetMetadata",
 				"dependsOn": [],
@@ -61,16 +31,47 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "getinputfiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"fileListPath": {
+								"value": "@activity('getinputfiles').output.childItems",
+								"type": "Expression"
+							}
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "az_hdinsight_blob_dataset_dataset",
+						"type": "DatasetReference"
+					}
+				}
 			}
 		],
-		"parameters": {
-			"containername": {
-				"type": "string"
-			},
-			"filename": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "adf_hdinsight_hive_pipeline"
 		},

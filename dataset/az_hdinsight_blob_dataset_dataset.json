@@ -11,10 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"folderPath": "inputfilepath",
-				"container": {
-					"value": "@dataset().containername",
-					"type": "Expression"
-				}
+				"container": "hivedatastore"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

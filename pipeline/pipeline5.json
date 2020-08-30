@@ -96,9 +96,7 @@
 										}
 									}
 								},
-								"fieldList": [
-									"childItems"
-								],
+								"fieldList": [],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings"
 								},

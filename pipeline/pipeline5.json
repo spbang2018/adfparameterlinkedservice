@@ -74,7 +74,7 @@
 					},
 					"activities": [
 						{
-							"name": "Get Metadata1",
+							"name": "getfileStaructure",
 							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
@@ -109,11 +109,36 @@
 									"type": "DelimitedTextReadSettings"
 								}
 							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "getfileStaructure",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "containername",
+								"value": {
+									"value": "@activity('getfileStaructure').output.structure.ContainerName",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"containername": {
+				"type": "String"
+			}
+		},
 		"folder": {
 			"name": "adf_hdinsight_hive_pipeline"
 		},

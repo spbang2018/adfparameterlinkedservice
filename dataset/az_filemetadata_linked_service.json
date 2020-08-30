@@ -1,0 +1,23 @@
+{
+	"name": "az_filemetadata_linked_service",
+	"properties": {
+		"description": "az_filemetadata_linked_service",
+		"linkedServiceName": {
+			"referenceName": "az_filemetada_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "inputfilepath",
+				"container": "hivedatastore"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "az_hdinsight_blob_dataset_dataset_inputfiles",
+						"referenceName": "az_filemetadata_linked_service",
 						"type": "DatasetReference"
 					},
 					"fieldList": [

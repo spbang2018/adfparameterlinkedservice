@@ -169,7 +169,7 @@
 									}
 								},
 								"scriptLinkedService": {
-									"referenceName": "az_destination_blobstoarge",
+									"referenceName": "az_filemetada_linked_service",
 									"type": "LinkedServiceReference"
 								}
 							},

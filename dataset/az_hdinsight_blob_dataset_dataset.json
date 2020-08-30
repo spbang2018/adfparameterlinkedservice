@@ -1,5 +1,5 @@
 {
-	"name": "az_hdinsight_blob_dataset_",
+	"name": "az_hdinsight_blob_dataset_dataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "az_destination_blobstoarge",

@@ -1,0 +1,25 @@
+{
+	"name": "az_hdinsight_blob_dataset_",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_destination_blobstoarge",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "inputfilepath",
+				"container": {
+					"value": "@dataset().containername",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

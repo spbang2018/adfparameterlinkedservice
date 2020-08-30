@@ -1,6 +1,7 @@
 {
-	"name": "pipeline5",
+	"name": "adf_hive_hdinsight_integration",
 	"properties": {
+		"description": "outputfilelication",
 		"activities": [
 			{
 				"name": "getinputfiles",
@@ -25,7 +26,8 @@
 						"itemType"
 					],
 					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings"
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
 					},
 					"formatSettings": {
 						"type": "DelimitedTextReadSettings"
@@ -198,6 +200,22 @@
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Filterinputfiles_copy1",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('getinputfiles').output.childItems",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@endswith( item().name,'.txt')",
+						"type": "Expression"
+					}
 				}
 			}
 		],

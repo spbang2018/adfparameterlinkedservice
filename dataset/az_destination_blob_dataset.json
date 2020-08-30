@@ -5,13 +5,27 @@
 			"referenceName": "az_destination_blobstoarge",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"containername": {
+				"type": "string"
+			},
+			"filepath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@{item().Table_Name}",
-				"container": "archivecontainer"
+				"fileName": {
+					"value": "@{item().Table_Name}",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().containername",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

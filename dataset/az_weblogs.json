@@ -1,0 +1,23 @@
+{
+	"name": "az_weblogs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_destination_blobstoarge",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "hdinsight_hiveintegration"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

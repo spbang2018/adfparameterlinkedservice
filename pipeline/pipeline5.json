@@ -1,9 +1,22 @@
 {
-	"name": "pipeline4",
+	"name": "pipeline5",
 	"properties": {
 		"activities": [
 			{
-				"name": "Getfilelocation",
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline4",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false
+				}
+			},
+			{
+				"name": "getinputfiles",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -16,13 +29,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "az_destination_blob_dataset",
+						"referenceName": "az_hdinsight_blob_dataset_dataset",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"childItems",
 						"itemName",
-						"structure",
+						"itemName",
 						"itemType"
 					],
 					"storeSettings": {
@@ -38,7 +50,7 @@
 			"containername": {
 				"type": "string"
 			},
-			"filrname": {
+			"filename": {
 				"type": "string"
 			}
 		},

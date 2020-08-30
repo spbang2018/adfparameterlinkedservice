@@ -160,11 +160,11 @@
 								"scriptPath": "hivedatastore/scripts/partitionweblogs.hql",
 								"defines": {
 									"inputfilelocation": {
-										"value": "wasbs://hivedatastore@processsalesdatasa.blob.core.windows.net/inputdata/input.log",
+										"value": "@variables('inputFilelocation')",
 										"type": "Expression"
 									},
 									"outputfilelication": {
-										"value": "wasbs://hivedatastore@processsalesdatasa.blob.core.windows.net/outputdata/\n\n",
+										"value": "@variables('outputfilelication')",
 										"type": "Expression"
 									}
 								},

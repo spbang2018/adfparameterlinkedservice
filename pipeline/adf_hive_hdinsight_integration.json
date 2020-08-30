@@ -92,10 +92,7 @@
 									"type": "DelimitedTextSource",
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
-										"fileListPath": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
+										"recursive": true
 									},
 									"formatSettings": {
 										"type": "DelimitedTextReadSettings"

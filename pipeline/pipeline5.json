@@ -72,10 +72,11 @@
 						"value": "@activity('Filterinputfiles').output.Value",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
-							"name": "getfileStaructure",
-							"type": "GetMetadata",
+							"name": "Getfilecontentvalues",
+							"type": "Lookup",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "7.00:00:00",
@@ -86,6 +87,16 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
 								"dataset": {
 									"referenceName": "az_hdinsight_blob_dataset_dataset",
 									"type": "DatasetReference",
@@ -96,26 +107,15 @@
 										}
 									}
 								},
-								"fieldList": [
-									"columnCount",
-									"itemName",
-									"itemType",
-									"structure"
-								],
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
+								"firstRowOnly": false
 							}
 						},
 						{
-							"name": "Set variable1",
+							"name": "setiputfilelocation",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "getfileStaructure",
+									"activity": "Getfilecontentvalues",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -123,9 +123,76 @@
 							],
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "containername",
+								"variableName": "inputFilelocation",
 								"value": {
-									"value": "@activity('getfileStaructure').output.structure.ContainerName",
+									"value": "@activity('Getfilecontentvalues').output.value[0].inputFilelocation\n",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "processweblogs",
+							"type": "HDInsightHive",
+							"dependsOn": [
+								{
+									"activity": "setiputfilelocation",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								},
+								{
+									"activity": "setoutputfilelocation",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"scriptPath": "hivedatastore/scripts/partitionweblogs.hql",
+								"defines": {
+									"inputfilelocation": {
+										"value": "@variables('inputFilelocation')",
+										"type": "Expression"
+									},
+									"outputfilelication": {
+										"value": "@variables('outputfilelication')",
+										"type": "Expression"
+									}
+								},
+								"scriptLinkedService": {
+									"referenceName": "az_destination_blobstoarge",
+									"type": "LinkedServiceReference"
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "ad_hdinsight_linkedservice",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "setoutputfilelocation",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Getfilecontentvalues",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "outputfilelication",
+								"value": {
+									"value": "@activity('Getfilecontentvalues').output.value[0].outputfilelication\n",
 									"type": "Expression"
 								}
 							}
@@ -135,7 +202,13 @@
 			}
 		],
 		"variables": {
-			"containername": {
+			"conatinerName": {
+				"type": "String"
+			},
+			"inputFilelocation": {
+				"type": "String"
+			},
+			"outputfilelication": {
 				"type": "String"
 			}
 		},

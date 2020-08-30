@@ -160,11 +160,11 @@
 								"scriptPath": "hivedatastore/scripts/partitionweblogs.hql",
 								"defines": {
 									"inputfilelocation": {
-										"value": "@variables('inputFilelocation')",
+										"value": "@variables('inputFilelocation').value",
 										"type": "Expression"
 									},
 									"outputfilelication": {
-										"value": "@variables('outputfilelication')",
+										"value": "@variables('outputfilelication').value",
 										"type": "Expression"
 									}
 								},

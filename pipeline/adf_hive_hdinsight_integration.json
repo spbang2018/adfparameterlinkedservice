@@ -99,7 +99,7 @@
 									}
 								},
 								"dataset": {
-									"referenceName": "az_hdinsight_blob_dataset_dataset",
+									"referenceName": "az_lookup_linked_dataset",
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {

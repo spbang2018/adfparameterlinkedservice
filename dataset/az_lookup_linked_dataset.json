@@ -1,0 +1,27 @@
+{
+	"name": "az_lookup_linked_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_filemetada_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "inputfilepath",
+				"container": "hivedatastore"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

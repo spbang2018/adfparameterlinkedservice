@@ -1,7 +1,6 @@
 {
 	"name": "adf_hive_hdinsight_integration",
 	"properties": {
-		"description": "outputfilelication",
 		"activities": [
 			{
 				"name": "getinputfiles",
@@ -48,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('getinputfiles').output.childItems",
+						"value": "@activity('getinputfiles').output.childItems\n",
 						"type": "Expression"
 					},
 					"condition": {

@@ -164,7 +164,7 @@
 										"type": "Expression"
 									},
 									"outputfilelication": {
-										"value": "@variables('outputfilelication')",
+										"value": "@concat(variables('outputfilelication'),'/','transformed.log')",
 										"type": "Expression"
 									}
 								},

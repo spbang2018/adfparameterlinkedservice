@@ -1,0 +1,32 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Spark1",
+				"type": "HDInsightSpark",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"rootPath": "sparkcontainer/inputdata",
+					"entryFilePath": "analyze_weblogs.ipynb"
+				},
+				"linkedServiceName": {
+					"referenceName": "az_hdinsight_linked_service",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "adf-hdinsight_spark-pipeline"
+		},
+		"annotations": []
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "mydatafactoryshiva",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "de1b52eb-fda4-4584-9561-6027ed90e71d",
+		"tenantId": "2eb8bb1d-7e5c-4341-ac3b-59e3035f122e"
+	}
+}
